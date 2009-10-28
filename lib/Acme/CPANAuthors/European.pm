@@ -7,6 +7,22 @@ no  warnings 'syntax';
 
 our $VERSION = '2009102801';
 
+my @NATIONALITIES;
+
+BEGIN {
+    @NATIONALITIES = qw [Austrian French German Icelandic
+                         Italian Norwegian Portuguese Russian
+                         Turkish Ukrainian];
+    foreach my $nat (@NATIONALITIES) {
+        eval "require Acme::CPANAuthors::$nat" or die $@;
+    }
+}
+
+use Acme::CPANAuthors::Register (
+   (map {"Acme::CPANAuthors::$_" -> authors} @NATIONALITIES),
+    ABIGAIL       =>   'Abigail',
+);
+
 
 1;
 
@@ -14,17 +30,42 @@ __END__
 
 =head1 NAME
 
-Acme::CPANAuthors::European - Abstract
+Acme::CPANAuthors::European - European CPAN authors
 
 =head1 SYNOPSIS
 
+ use Acme::CPANAuthors;
+
+ my $authors  = Acme::CPANAuthors -> new ("European");
+
+ my $number   = $authors -> count;
+ my @ids      = $authors -> id;
+ my @distros  = $authors -> distributions ("ABIGAIL");
+ my $url      = $authors -> avatar_url    ("ABIGAIL");
+ my $kwalitee = $authors -> kwalitee      ("ABIGAIL");
+ my $name     = $authors -> name          ("ABIGAIL");
+
+See documentation for Acme::CPANAuthors for more details.
+
 =head1 DESCRIPTION
+
+This class provides a hash of European authors' PAUSE ID and name to
+the C<< Acme::CPANAuthors >> module.
+
+=head1 MAINTENANCE
+
+If you're European CPAN author without further specified nationality,
+please send me your ID/name via email, and I may keep this module op
+to date.
 
 =head1 BUGS
 
+All Russian and Turkish authors are considered European. This is not
+necessarely the case, as Russia and Turkey lie in more than one continent.
+
 =head1 TODO
 
-=head1 SEE ALSO
+Add more countries if they become available.
 
 =head1 DEVELOPMENT
 
