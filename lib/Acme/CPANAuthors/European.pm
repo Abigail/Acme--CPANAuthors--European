@@ -4,6 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 no  warnings 'syntax';
+use utf8;
 
 our $VERSION = '2009110201';
 
@@ -21,6 +22,7 @@ BEGIN {
 use Acme::CPANAuthors::Register (
    (map {"Acme::CPANAuthors::$_" -> authors} @NATIONALITIES),
     ABIGAIL       =>   'Abigail',
+    SREZIC        =>   'Slaven Rezić',
 );
 
 
