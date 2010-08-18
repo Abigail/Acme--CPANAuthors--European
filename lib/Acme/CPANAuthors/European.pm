@@ -5,12 +5,12 @@ use strict;
 use warnings;
 no  warnings 'syntax';
 
-our $VERSION = '2010081701';
+our $VERSION = '2010081801';
 
 my @NATIONALITIES;
 
 BEGIN {
-    @NATIONALITIES = qw [Austrian French German Icelandic
+    @NATIONALITIES = qw [Austrian British French German Icelandic
                          Italian Norwegian Portuguese Russian
                          Turkish Ukrainian];
     foreach my $nat (@NATIONALITIES) {
