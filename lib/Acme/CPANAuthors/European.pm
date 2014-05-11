@@ -11,7 +11,7 @@ my @NATIONALITIES;
 
 BEGIN {
     @NATIONALITIES = qw [Austrian British French German Icelandic
-                         Italian Norwegian Portuguese Russian
+                         Norwegian Portuguese Russian
                          Turkish Ukrainian];
     foreach my $nat (@NATIONALITIES) {
         eval "require Acme::CPANAuthors::$nat" or die $@;
