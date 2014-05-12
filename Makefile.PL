@@ -18,7 +18,6 @@ my %args = (
                              'Acme::CPANAuthors::French'     => 0,
                              'Acme::CPANAuthors::German'     => 0,
                              'Acme::CPANAuthors::Icelandic'  => 0,
-                             'Acme::CPANAuthors::Italian'    => 0,
                              'Acme::CPANAuthors::Norwegian'  => 0,
                              'Acme::CPANAuthors::Portuguese' => 0,
                              'Acme::CPANAuthors::Russian'    => 0,
